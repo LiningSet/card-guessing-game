@@ -16,7 +16,7 @@ Technologies used include:
 1.HTML 
 2.CSS/SCSS 
 3.JavaScript 
-4.some 3rd party libraries (gsap, confetti.js)
+4.some 3rd party libraries (gsap, confetti.js) 
 
 
 Enjoy :))
