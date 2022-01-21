@@ -20,3 +20,7 @@ Technologies used include:
 
 
 Enjoy :))
+
+
+![sample](https://user-images.githubusercontent.com/89850392/150605489-0ed71613-fd88-4abd-b494-8837bc6ec3a9.PNG)
+![sample2](https://user-images.githubusercontent.com/89850392/150605497-7651cdb5-d929-4f9d-a519-9e95574afdba.PNG)
