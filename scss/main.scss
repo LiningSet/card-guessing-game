@@ -1,0 +1,313 @@
+$font: "Montserrat", sans-serif;
+$t1: all 0.3s ease;
+
+$dark-blackish: #1f1a17;
+$main-green: #3d756c;
+$lighter-green: #418477;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+}
+
+html {
+  font-family: $font;
+}
+
+h1 {
+  font-weight: 600;
+  width: 90%;
+  max-width: 600px;
+  font-size: 1.5rem;
+}
+h2 {
+  width: 90%;
+  max-width: 600px;
+  font-size: 1rem;
+}
+
+.emoji-reveal {
+  width: 5rem;
+  height: 5rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+  z-index: 99;
+
+  img {
+    width: 100%;
+    vertical-align: bottom;
+  }
+}
+
+.lobby {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  text-align: center;
+}
+
+.difficulty-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 90%;
+  max-width: 300px;
+
+  .difficulty-btn {
+    font-weight: 600;
+    padding: 1rem 0;
+    cursor: pointer;
+    border: none;
+    border-radius: 0.5rem;
+    color: #fff;
+    position: relative;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    transition: $t1;
+
+    pointer-events: none;
+    opacity: 0;
+    transform: translateX(-50px);
+
+    &:hover {
+      opacity: 0.75;
+    }
+  }
+}
+
+.child-play-btn {
+  background: #73d383;
+}
+
+.easy-btn {
+  background: #43a18d;
+}
+
+.medium-btn {
+  background: #7949fd;
+}
+
+.legend-play-btn {
+  background: #ce5540;
+}
+
+.play-table {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .play-content-container {
+    width: 90%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    .next-level-btn {
+      font-weight: 600;
+      padding: 1rem;
+      cursor: pointer;
+      border: none;
+      border-radius: 0.5rem;
+      color: #fff;
+      font-size: 0.75rem;
+      transition: $t1;
+      background: $main-green;
+      align-self: center;
+    }
+
+    .locked {
+      pointer-events: none;
+      opacity: 0.5;
+    }
+  }
+
+  .play-board {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    box-shadow: 0 0 0.5rem 0.075rem rgba(90, 90, 90, 0.25);
+    border-radius: 5px;
+    background: rgb(255, 251, 251);
+    position: relative;
+
+    .card-to-guess {
+      width: 20%;
+      box-shadow: 0 0 0rem 0.15rem rgba(90, 90, 90, 0.25);
+      overflow: hidden;
+      border-radius: 5px;
+      aspect-ratio: 1 / 1;
+      img {
+        width: 100%;
+        vertical-align: bottom;
+      }
+    }
+
+    .live-board {
+      font-weight: 600;
+      font-size: 1rem;
+      background: #fff;
+      padding: 0.125rem;
+      border-radius: 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 1rem;
+
+      .lives-left {
+        color: rgb(235, 66, 66);
+      }
+    }
+
+    .animal-disclaimer {
+      position: absolute;
+      top: 1rem;
+    }
+  }
+}
+
+.arena {
+  display: grid;
+  gap: 1rem;
+  aspect-ratio: 1 / 1;
+  display: none;
+
+  .card {
+    cursor: pointer;
+    perspective: 50rem;
+    position: relative;
+    pointer-events: none;
+  }
+
+  .card-content {
+    position: absolute;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 0.5rem 0.075rem rgba(90, 90, 90, 0.25);
+    transform-style: preserve-3d;
+    transition: all 0.5s ease;
+  }
+
+  .card-back,
+  .card-front {
+    position: absolute;
+    backface-visibility: hidden;
+    vertical-align: bottom;
+    width: 100%;
+  }
+  .card-front {
+    transform: rotateY(180deg);
+  }
+}
+
+.arena-child-play {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.arena-easy {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.arena-medium {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.arena-legend-play {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.result-won,
+.result-lost {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  .result-inner {
+    width: 90%;
+    max-width: 350px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+
+    > * {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    span {
+      font-weight: 600;
+    }
+
+    .prizes {
+      width: 100%;
+      display: flex;
+      gap: 1rem;
+
+      div {
+        flex: 1;
+        box-shadow: 0 0 0.5rem 0.075rem rgba(90, 90, 90, 0.25);
+
+        img {
+          width: 100%;
+          vertical-align: bottom;
+        }
+      }
+    }
+  }
+
+  .try-again-btn {
+    font-weight: 600;
+    padding: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 0.5rem;
+    color: #fff;
+    font-size: 0.75rem;
+    transition: $t1;
+    background: $main-green;
+    align-self: center;
+  }
+
+  .continue-btn {
+    @extend .try-again-btn;
+  }
+}
+
+@media (min-width: 600px) {
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  .arena {
+    gap: 1rem;
+
+    &.arena-easy,
+    &.arena-child-play {
+      gap: 2rem;
+    }
+  }
+}

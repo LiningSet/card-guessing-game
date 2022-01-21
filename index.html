@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card Game</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./scss/main.css" />
+  </head>
+  <body>
+    <div class="lobby">
+      <h1>Welcome to the amazing card guessing game</h1>
+      <h2>please choose your difficulty level...</h2>
+      <div class="difficulty-btns">
+        <button class="difficulty-btn child-play-btn" data-show="child-play">
+          CHILD'S PLAY
+        </button>
+        <button class="difficulty-btn easy-btn" data-show="easy">EASY</button>
+        <button class="difficulty-btn medium-btn" data-show="medium">
+          MEDIUM
+        </button>
+        <button class="difficulty-btn legend-play-btn" data-show="legend-play">
+          LEGEND'S PLAY
+        </button>
+      </div>
+    </div>
+
+    <div class="play-table">
+      <div class="play-content-container">
+        <span class="animal-disclaimer">Animal land spotted ahead...</span>
+        <div class="play-board">
+          <div class="card-to-guess">
+            <img src="" alt="" class="card-to-guess-img" />
+          </div>
+          <div class="live-board">
+            <div>lvl. <span class="level">1</span></div>
+            <div class="lives-left">
+              <span class="lives">3</span> <i class="fas fa-heart heart"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="arena arena-child-play"></div>
+
+        <div class="arena arena-easy"></div>
+
+        <div class="arena arena-medium"></div>
+
+        <div class="arena arena-legend-play"></div>
+
+        <button class="next-level-btn locked">Next Level</button>
+      </div>
+    </div>
+
+    <div class="result-lost">
+      <div class="result-inner result-lost-inner">
+        <h1>You Lost</h1>
+        <span>Highest Score: </span>
+        <h2 class="highest-score">0</h2>
+        <button class="try-again-btn">Try Again</button>
+      </div>
+    </div>
+
+    <div class="result-won">
+      <div class="result-inner result-won-inner">
+        <h2>
+          Congratulations!! <br />
+          You Won
+        </h2>
+        <p>
+          We hereby entrust you with a delicious fruit and a lovely pet as an
+          acknowledgment of your efforts. Come again soon :)
+        </p>
+        <div class="prizes">
+          <div>
+            <img src="./images/fruits/6.png" alt="" class="fruit-prize" />
+          </div>
+          <div>
+            <img src="./images/animals/6.png" alt="" class="animal-prize" />
+          </div>
+        </div>
+        <span>You can keep going if you want to</span>
+        <button class="continue-btn">Continue</button>
+      </div>
+    </div>
+
+    <div class="emoji-reveal"><img src="" alt="" /></div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"
+      integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="./js/libs/confetti.js"></script>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
